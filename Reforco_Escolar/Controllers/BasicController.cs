@@ -32,6 +32,7 @@ namespace Reforco_Escolar.Controllers
 }
 
 /*  Implementar as Views na pasta 'Basic':
+    - Index     -> Página Inicial
     - Contato   -> Formulário de Contato padrão. Nome / E-mail / Mensagem / Contato. Validação de campos
     - Serviços  -> Implementar uma View com os tipos de serviços separados em 'Box','Grids' ou algo similar.
     - Cadastro  -> Com integração com Via CEP - Validação no front (expressão regular) e no Back (banco de dados) - Persistir no BD SQL Server e/ou no MySQL
