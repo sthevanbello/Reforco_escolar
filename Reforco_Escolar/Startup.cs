@@ -63,7 +63,7 @@ namespace Reforco_Escolar
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Basic}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
