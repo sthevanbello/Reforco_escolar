@@ -16,6 +16,8 @@ namespace Reforco_Escolar.Context
 
         }
 
+        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -26,16 +28,3 @@ namespace Reforco_Escolar.Context
         }
     }
 }
-
-//protected override void OnModelCreating(ModelBuilder modelBuilder)
-//{
-//    base.OnModelCreating(modelBuilder);
-//    modelBuilder.Entity<Cliente>().HasKey(c => c.Id);
-//    modelBuilder.Entity<Cliente>().HasOne(c => c.Cadastro);
-
-
-//    modelBuilder.Entity<Cadastro>().HasKey(c => c.Id);
-//    modelBuilder.Entity<Cadastro>().HasOne(c => c.Cliente).WithOne(c => c.Cadastro).HasForeignKey<Cliente>(c => c.Id).IsRequired();
-
-
-//}

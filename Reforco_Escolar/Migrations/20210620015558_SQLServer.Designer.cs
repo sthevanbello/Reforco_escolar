@@ -9,8 +9,8 @@ using Reforco_Escolar.Context;
 namespace Reforco_Escolar.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210620010253_Initial")]
-    partial class Initial
+    [Migration("20210620015558_SQLServer")]
+    partial class SQLServer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

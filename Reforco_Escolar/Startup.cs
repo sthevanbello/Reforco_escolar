@@ -37,10 +37,10 @@ namespace Reforco_Escolar
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            string connectionString = Configuration.GetConnectionString("Default");
+            string connectionString = Configuration.GetConnectionString("SQLServer");
 
-            services.AddDbContext<ApplicationContext>(options => 
-            
+            services.AddDbContext<ApplicationContext>(options =>
+
             options.UseSqlServer(connectionString)
 
             );
