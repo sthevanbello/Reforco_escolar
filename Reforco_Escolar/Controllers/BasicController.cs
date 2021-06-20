@@ -37,4 +37,5 @@ namespace Reforco_Escolar.Controllers
     - Serviços  -> Implementar uma View com os tipos de serviços separados em 'Box','Grids' ou algo similar.
     - Cadastro  -> Com integração com Via CEP - Validação no front (expressão regular) e no Back (banco de dados) - Persistir no BD SQL Server e/ou no MySQL
     - Sobre     -> View com um resumo dos tipos de serviço do site
+    Implementar Repositório de cadastro
 */

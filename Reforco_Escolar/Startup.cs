@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Reforco_Escolar.Context;
 using Reforco_Escolar.Data;
+using Reforco_Escolar.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,10 +45,13 @@ namespace Reforco_Escolar
             options.UseSqlServer(connectionString)
 
             );
+
+            // Cria a instância de DataService
+            services.AddTransient<IDataService, DataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +64,10 @@ namespace Reforco_Escolar
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Cria o banco caso não haja banco existente
+            serviceProvider.GetService<IDataService>().InicializaDB();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
