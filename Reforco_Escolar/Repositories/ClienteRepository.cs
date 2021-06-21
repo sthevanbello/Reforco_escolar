@@ -25,20 +25,30 @@ namespace Reforco_Escolar.Repositories
             return dbSet.ToList();
         }
 
-        public async void Update(Cliente novoCliente)
+        public async void Update(Cliente cliente)
         {
             var cadastroDB =
-                await dbSet.Where(c => c.Id == novoCliente.Id)
+                await dbSet.Where(c => c.Id == cliente.Id)
                 .SingleOrDefaultAsync();
 
             if (cadastroDB == null)
             {
-                throw new ArgumentNullException("cadastro");
+                throw new ArgumentNullException("cadastro vazio");
             }
 
-            cadastroDB.Update(novoCliente);
+            cadastroDB.Update(cliente);
             await context.SaveChangesAsync();
-            
+
+        }
+
+        public void IncluirCliente(Cliente novoCliente)
+        {
+            if (novoCliente != null)
+            {
+                dbSet.Add(novoCliente);
+                context.SaveChanges();
+            }
+
         }
     }
 }

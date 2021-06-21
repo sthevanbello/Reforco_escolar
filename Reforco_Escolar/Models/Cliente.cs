@@ -42,6 +42,10 @@ namespace Reforco_Escolar.Models
             Nome = novoCliente.Nome;
             Telefone = novoCliente.Telefone;
             UF = novoCliente.UF;
+
         }
+
+
+        
     }
 }
