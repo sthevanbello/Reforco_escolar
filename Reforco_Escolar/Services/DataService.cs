@@ -4,22 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Reforco_Escolar.Repositories;
 
 namespace Reforco_Escolar.Services
 {
     // Cria o banco caso não haja banco existente
     public class DataService : IDataService
     {
-        private readonly ApplicationContext Context;
+        private readonly ApplicationContext _context;
+        private readonly IClienteRepository _clienteRepository;
 
-        public DataService(ApplicationContext context)
+
+        public DataService(ApplicationContext context, IClienteRepository clienteRepository)
         {
-            Context = context;
+            _context = context;
+            _clienteRepository = clienteRepository;
         }
 
         public void InicializaDB()
         {
-            Context.Database.Migrate();
+            _context.Database.Migrate();
         }
+
+
+
     }
 }

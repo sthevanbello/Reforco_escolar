@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Reforco_Escolar.Context;
 using Reforco_Escolar.Data;
+using Reforco_Escolar.Repositories;
 using Reforco_Escolar.Services;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,7 @@ namespace Reforco_Escolar
 
             // Cria a instância de DataService
             services.AddTransient<IDataService, DataService>();
+            services.AddTransient<IClienteRepository, ClienteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

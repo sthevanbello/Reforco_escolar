@@ -20,10 +20,10 @@ namespace Reforco_Escolar.Controllers
         {
             return View();
         }
-        public IActionResult Cadastro()
-        {
-            return View();
-        }
+        //public IActionResult Cadastro()
+        //{
+        //    return View();
+        //}
         public IActionResult Sobre()
         {
             return View();
