@@ -141,3 +141,44 @@ footer {
     text-align: center;
     padding: 10px
 }
+
+/*Lista*/
+
+table {
+    width: 100%;
+    margin-bottom: .5em;
+    table-layout: fixed;
+}
+
+td, th {
+    padding: .7em;
+    margin: 0;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+    background-color: #EEE;
+}
+
+.filtrar-tabela {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 35px;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.fadeIn {
+    opacity: 100;
+    transition: 0.5s;
+}
+
+.invisivel {
+    transition: 0.5s;
+    display: none;
+}

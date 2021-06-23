@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <main>
+        <h1 class="titulo">Reforço Acadêmico</h1>
+        <section>
+            <h2>Clientes</h2>
+            <div class="buscador">
+                <input type="text" name="filtro" id="filtro-tabela" class="filtrar-tabela" placeholder="Digite o nome do Cliente">
+            </div>
+            <table>
+                <thead>
+                    <tr class="cabecalho">
+                        <th>Nome</th>
+                        <th>Rua</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Complemento</th>
+                        <th>Bairro</th>
+                        <th>Municipio</th>
+                        <th>UF</th>
+                        <th>CEP</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-clientes">
+                    <tr class="cliente-tr">
+                        <td class="info-nome">Paulo</td>
+                        <td>Rua dos Bobos</td>
+                        <td>cliente@cliente.com</td>
+                        <td>95485-5698</td>
+                        <td>Casa</td>
+                        <td>Rua Pastor José Franco</td>
+                        <td>Barulhos</td>
+                        <td>SP</td>
+                        <td>07052-225</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a asp-controller="Basic" asp-action="Index" class="btn-voltar">Voltar</a>
+
+        </section>
+
+    </main>
+
+    <script src="~/js/remover.js"></script>
+    <script src="~/js/filtro.js"></script>
+</body>
