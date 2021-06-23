@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model List<Cliente>;
+
+
 
 <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -35,17 +38,20 @@
                     </tr>
                 </thead>
                 <tbody id="tabela-clientes">
-                    <tr class="cliente-tr">
-                        <td class="info-nome">Paulo</td>
-                        <td>Rua dos Bobos</td>
-                        <td>cliente@cliente.com</td>
-                        <td>95485-5698</td>
-                        <td>Casa</td>
-                        <td>Rua Pastor José Franco</td>
-                        <td>Barulhos</td>
-                        <td>SP</td>
-                        <td>07052-225</td>
-                    </tr>
+                    @foreach (var cliente in Model)
+                    {
+                        <tr class="cliente-tr">
+                            <td class="info-nome">Paulo</td>
+                            <td>Rua dos Bobos</td>
+                            <td>cliente@cliente.com</td>
+                            <td>95485-5698</td>
+                            <td>Casa</td>
+                            <td>Rua Pastor José Franco</td>
+                            <td>Barulhos</td>
+                            <td>SP</td>
+                            <td>07052-225</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
 

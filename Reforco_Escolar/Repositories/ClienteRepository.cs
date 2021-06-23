@@ -8,16 +8,12 @@ using System.Threading.Tasks;
 
 namespace Reforco_Escolar.Repositories
 {
-    public class ClienteRepository : IClienteRepository
+    public class ClienteRepository : BaseRepository<Cliente>, IClienteRepository
     {
-        private readonly ApplicationContext context;
-        private readonly DbSet<Cliente> dbSet;
-
-
-        public ClienteRepository(ApplicationContext context)
+       
+        public ClienteRepository(ApplicationContext context) : base(context)
         {
-            this.context = context;
-            dbSet = context.Set<Cliente>();
+            
         }
 
         public IList<Cliente> GetClientes()

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Reforco_Escolar.Models
 {
-    public class Cliente
+    public class Cliente : BaseModel
     {
         
-        public int Id { get; set; }
+        
         [MinLength(3, ErrorMessage = "Nome deve ter no mínimo 5 caracteres")]
         [MaxLength(50, ErrorMessage = "Nome deve ter no máximo 50 caracteres")]
         [Required(ErrorMessage = "Nome é obrigatório")]
