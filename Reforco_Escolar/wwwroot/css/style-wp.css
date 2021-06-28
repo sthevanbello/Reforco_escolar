@@ -39,7 +39,7 @@ a {
 }
 
 main {
-    /*background: url("../imagens/back2.jpg") no-repeat center center;*/
+    background: url("../imagens/back2.jpg") no-repeat center center;
     background-size: cover;
     height: 88vh;
 }

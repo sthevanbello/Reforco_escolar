@@ -1,81 +1,116 @@
 ﻿@{
     ViewData["Title"] = "Cadastro";
-}
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Classy Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-    <script type="application/x-javascript">
-         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-        function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- Meta tag Keywords -->
-    <!-- //css files -->
 
-    <link href="~/css/style-form.css" rel="stylesheet" />
-    <!-- online-fonts -->
-    <link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
-    <!--//online-fonts -->
-</head>
+}
+
+<link href="~/css/reset.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style-cadastro.css" rel="stylesheet" media="all" />
+<script>
+    addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+</script>
 <body>
-    <div class="w3-main">
-        <!-- Main -->
-        <div class="about-bottom main-agile book-form">
-            <div class="alert-close"> </div>
-            <h2 class="tittle">Cadastro</h2>
-            <form action="#" method="post">
-                <div class="form-date-w3-agileits">
-                    <label> Nome </label>
-                    <input type="text" name="name" placeholder="Nome" required="">
-                    <label> E-mail </label>
-                    <input type="text" name="email" placeholder="E-mail" required="">
-                    <label> Telefone </label>
-                    <input type="tel" name="telefone" placeholder="Telefone" required="">
-                    <label> Endereço </label>
-                    <input type="text" name="endereco" placeholder="Endereço" required="">
-                    <label> Complemento </label>
-                    <input type="text" name="complemento" placeholder="Complemento" required="">
-                    <label> Bairro </label>
-                    <input type="text" name="bairro" placeholder="Bairro" required="">
-                    <label> Município </label>
-                    <input type="text" name="municipio" placeholder="Município" required="">
-                    <label> Estado </label>
-                    <select class="single-select" name="UF">
-                        <option selected value="">Selecione o estado</option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                    </select>
+    <h1 class="header-w3ls">
+            Cadastro
+        </h1>
+    <div class="online-w3l-form">
+        @*<div class="main-headder">
+            <div class="address-agile">
+                <div class="using-address">
+                    <p class="form-details">Date</p>
+                    <span class="details-list">: 6/15/2018</span>
                 </div>
-                <div class="make wow shake">
+                <div class="using-address">
+                    <p class="form-details">Time</p>
+                    <span class="details-list">: 10:00 Am</span>
+                </div>
+                <div class="using-address">
+                    <p class="form-details">Address</p>
+                    <span class="details-list">: Bmr St,Canada</span>
+                </div>
+            </div>
+            <div class="map-grid">
+                <h2>Localização</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.948805392833!2d-73.99619098458929!3d40.71914347933105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1479793484055"></iframe>
+            </div>
+        </div>*@
+        <div class="appointment-w3">
+            <form action="#" method="post">
+                <div class="main">
+                    <div class="form-left-w3l">
+                        <input type="text" class="top-up" name="name" placeholder="Nome" required="">
+                    </div>
+                    <div class="form-right-w3ls ">
+                        <input type="text" class="top-up" name="cep" placeholder="CEP" required="">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="form-left-w3l">
+                        <input type="email" name="email" placeholder="E-mail" required="">
+                    </div>
+                    <div class="form-right-w3ls ">
+                        <input class="buttom" type="text" name="telefone" placeholder="Telefone" required="">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-add-w3ls">
+                    <input type="text" name="rua" placeholder="Rua" required="">
+                </div>
+                <div class="main">
+                    <div class="form-left-w3l">
+                        <input type="text" name="complemento" placeholder="Complemento" required="">
+                    </div>
+                    <div class="form-right-w3ls ">
+                        <input type="text" name="bairro" placeholder="Bairro" required="">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="form-left-w3l">
+                        <input type="text" name="municipio" placeholder="Município" required="">
+                    </div>
+                    <div class="form-right-w3ls">
+                        <select class="form-control buttom">
+                            <option selected value="">Selecione o estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- <div class="form-control-w3l">
+                  <textarea name="Message" placeholder="Any Message..."></textarea>
+                </div> -->
+                <div class="btnn">
                     <input type="submit" value="Register">
                 </div>
             </form>
         </div>
-        <!-- //Main -->
     </div>
 </body>
-<script src="~/js/jquery-2.1.4.min.js"></script>
