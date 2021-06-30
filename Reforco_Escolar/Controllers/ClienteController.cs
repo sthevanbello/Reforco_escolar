@@ -27,5 +27,12 @@ namespace Reforco_Escolar.Controllers
 
             return View(clientes);
         }
+
+        public IActionResult Resumo()
+        {
+            return View();
+        }
+
+
     }
 }

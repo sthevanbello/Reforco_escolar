@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Cadastro";
-
+    
 }
+@model Cliente; 
 
 <link href="~/css/reset.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
@@ -14,64 +15,44 @@
             Cadastro
         </h1>
     <div class="online-w3l-form">
-        @*<div class="main-headder">
-            <div class="address-agile">
-                <div class="using-address">
-                    <p class="form-details">Date</p>
-                    <span class="details-list">: 6/15/2018</span>
-                </div>
-                <div class="using-address">
-                    <p class="form-details">Time</p>
-                    <span class="details-list">: 10:00 Am</span>
-                </div>
-                <div class="using-address">
-                    <p class="form-details">Address</p>
-                    <span class="details-list">: Bmr St,Canada</span>
-                </div>
-            </div>
-            <div class="map-grid">
-                <h2>Localização</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.948805392833!2d-73.99619098458929!3d40.71914347933105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1479793484055"></iframe>
-            </div>
-        </div>*@
         <div class="appointment-w3">
-            <form action="#" method="post">
+            <form asp-controller="Cliente" asp-action="Resumo" method="post">
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="text" class="top-up" name="name" placeholder="Nome" required="">
+                        <input type="text" class="top-up" asp-for="@Model.Nome" placeholder="Nome" required="">
                     </div>
                     <div class="form-right-w3ls ">
-                        <input type="text" class="top-up" name="cep" placeholder="CEP" required="">
+                        <input type="text" class="top-up" asp-for="@Model.CEP" placeholder="CEP" required="">
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="email" name="email" placeholder="E-mail" required="">
+                        <input type="email" asp-for="@Model.Email" placeholder="E-mail" required="">
                     </div>
                     <div class="form-right-w3ls ">
-                        <input class="buttom" type="text" name="telefone" placeholder="Telefone" required="">
+                        <input class="buttom" type="text" asp-for="@Model.Telefone" placeholder="Telefone" required="">
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="form-add-w3ls">
-                    <input type="text" name="rua" placeholder="Rua" required="">
+                    <input type="text" asp-for="@Model.Rua" placeholder="Rua" required="">
                 </div>
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="text" name="complemento" placeholder="Complemento" required="">
+                        <input type="text" asp-for="@Model.Complemento" placeholder="Complemento" required="">
                     </div>
                     <div class="form-right-w3ls ">
-                        <input type="text" name="bairro" placeholder="Bairro" required="">
+                        <input type="text" asp-for="@Model.Bairro" placeholder="Bairro" required="">
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="text" name="municipio" placeholder="Município" required="">
+                        <input type="text" asp-for="@Model.Municipio" placeholder="Município" required="">
                     </div>
                     <div class="form-right-w3ls">
-                        <select class="form-control buttom">
+                        <select class="form-control buttom" asp-for="@Model.UF">
                             <option selected value="">Selecione o estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -104,11 +85,8 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
-                <!-- <div class="form-control-w3l">
-                  <textarea name="Message" placeholder="Any Message..."></textarea>
-                </div> -->
                 <div class="btnn">
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Cadastrar">
                 </div>
             </form>
         </div>
