@@ -29,7 +29,7 @@ namespace Reforco_Escolar.Repositories
 
             if (cadastroDB == null)
             {
-                throw new ArgumentNullException("cadastro vazio");
+                throw new ArgumentNullException("Cliente inexistente");
             }
 
             cadastroDB.Update(cliente);
@@ -46,5 +46,7 @@ namespace Reforco_Escolar.Repositories
             }
 
         }
+
+
     }
 }

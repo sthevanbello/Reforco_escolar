@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Reforco_Escolar.Models;
 using Reforco_Escolar.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Reforco_Escolar.Controllers
 
         public IActionResult Cadastro()
         {
+
             return View();
         }
 
@@ -28,9 +30,11 @@ namespace Reforco_Escolar.Controllers
             return View(clientes);
         }
 
-        public IActionResult Resumo()
+        [HttpPost]
+        public IActionResult Resumo(Cliente cliente)
         {
-            return View();
+            
+            return View(cliente);
         }
 
 

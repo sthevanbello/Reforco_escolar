@@ -1,8 +1,10 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Cadastro";
-    
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Cliente; 
+
+@model Cliente;
 
 <link href="~/css/reset.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
@@ -12,47 +14,56 @@
 </script>
 <body>
     <h1 class="header-w3ls">
-            Cadastro
-        </h1>
+        Cadastro
+    </h1>
     <div class="online-w3l-form">
         <div class="appointment-w3">
             <form asp-controller="Cliente" asp-action="Resumo" method="post">
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="text" class="top-up" asp-for="@Model.Nome" placeholder="Nome" required="">
+                        <input type="text" class="top-up" asp-for="@Model.Nome" placeholder="Nome">
+                        <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-right-w3ls ">
-                        <input type="text" class="top-up" asp-for="@Model.CEP" placeholder="CEP" required="">
+                        <input type="text" class="top-up" asp-for="@Model.CEP" placeholder="CEP">
+                        <span asp-validation-for="@Model.CEP" class="text-danger"></span>
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="email" asp-for="@Model.Email" placeholder="E-mail" required="">
+                        <input type="email" asp-for="@Model.Email" placeholder="E-mail">
+                        <span asp-validation-for="@Model.Email" class="text-danger"></span>
                     </div>
                     <div class="form-right-w3ls ">
-                        <input class="buttom" type="text" asp-for="@Model.Telefone" placeholder="Telefone" required="">
+                        <input class="buttom" type="text" asp-for="@Model.Telefone" placeholder="Telefone">
+                        <span asp-validation-for="@Model.Telefone" class="text-danger"></span>
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="form-add-w3ls">
-                    <input type="text" asp-for="@Model.Rua" placeholder="Rua" required="">
+                    <input type="text" asp-for="@Model.Rua" placeholder="Rua">
+                    <span asp-validation-for="@Model.Rua" class="text-danger"></span>
                 </div>
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="text" asp-for="@Model.Complemento" placeholder="Complemento" required="">
+                        <input type="text" asp-for="@Model.Complemento" placeholder="Complemento">
+                        <span asp-validation-for="@Model.Complemento" class="text-danger"></span>
                     </div>
                     <div class="form-right-w3ls ">
-                        <input type="text" asp-for="@Model.Bairro" placeholder="Bairro" required="">
+                        <input type="text" asp-for="@Model.Bairro" placeholder="Bairro">
+                        <span asp-validation-for="@Model.Bairro" class="text-danger"></span>
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="main">
                     <div class="form-left-w3l">
-                        <input type="text" asp-for="@Model.Municipio" placeholder="Município" required="">
+                        <input type="text" asp-for="@Model.Municipio" placeholder="Município">
+                        <span asp-validation-for="@Model.Municipio" class="text-danger"></span>
                     </div>
                     <div class="form-right-w3ls">
                         <select class="form-control buttom" asp-for="@Model.UF">
+
                             <option selected value="">Selecione o estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -82,6 +93,7 @@
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                         </select>
+                        <span asp-validation-for="@Model.UF" class="text-danger"></span>
                         <div class="clearfix"></div>
                     </div>
                 </div>

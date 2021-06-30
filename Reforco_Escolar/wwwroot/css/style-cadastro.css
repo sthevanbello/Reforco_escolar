@@ -455,3 +455,8 @@ padding: 33px 27px;
 }
 }
 /*--//responsive--*/
+
+.text-danger{
+    color:aliceblue;
+    font-size: 15px;
+}
