@@ -30,6 +30,7 @@ namespace Reforco_Escolar
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -38,6 +39,7 @@ namespace Reforco_Escolar
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
 
             string connectionString = Configuration.GetConnectionString("SQLServer");
 
@@ -70,9 +72,9 @@ namespace Reforco_Escolar
             // Cria o banco caso não haja banco existente
             serviceProvider.GetService<IDataService>().InicializaDB();
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseAuthentication();

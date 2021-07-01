@@ -39,7 +39,6 @@ a {
 }
 
 main {
-    /*background: url("../imagens/back2.jpg") no-repeat center center;*/
     background-size: cover;
     height: 88vh;
 }
@@ -182,28 +181,3 @@ th {
     display: none;
 }
 
-/*Formulário de cadastro*/
-/*.titulo {
-    font-family: 'Acme', sans-serif;
-    font-size: 30px;
-    text-align: center;
-}
-.formulario {
-    display: block;
-    margin: 0 0 20px;
-    padding: 10px 25px;
-    width: 50%;
-}
-
-form {
-    margin: 40px 40px;
-    font-family: 'Acme', sans-serif;
-    padding: 15px;
-}
-
-form input, form legend, form select {
-    display: block;
-    justify-content: space-around;
-    font-size: 16px;
-    margin: 0 0 10px;
-}*/

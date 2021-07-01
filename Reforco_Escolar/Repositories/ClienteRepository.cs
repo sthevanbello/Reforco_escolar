@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Reforco_Escolar.Context;
 using Reforco_Escolar.Models;
 using System;
@@ -10,15 +11,24 @@ namespace Reforco_Escolar.Repositories
 {
     public class ClienteRepository : BaseRepository<Cliente>, IClienteRepository
     {
+        private readonly IHttpContextAccessor _contextAccessor;
 
-        public ClienteRepository(ApplicationContext context) : base(context)
+        public ClienteRepository(ApplicationContext context, IHttpContextAccessor contextAccessor) : base(context)
         {
-
+            _contextAccessor = contextAccessor;
         }
 
         public IList<Cliente> GetClientes()
         {
             return dbSet.ToList();
+        }
+
+        public Cliente GetClienteUnico(int id)
+        {
+            var clienteDB = dbSet.Where(c => c.Id == id).SingleOrDefault();
+
+            
+            return clienteDB;
         }
 
         public Cliente UpdateCadastro(Cliente cliente)
@@ -49,20 +59,30 @@ namespace Reforco_Escolar.Repositories
 
         }
 
-        public void DeletarCliente(Cliente cliente)
+        public void DeletarCliente(int id)
         {
-            var cadastroDB = dbSet.Where(c => c.Id == cliente.Id).SingleOrDefault();
+            var clienteDB = dbSet.Where(c => c.Id == id).SingleOrDefault();
 
-            if (cliente == null)
+            if (clienteDB == null)
             {
                 throw new ArgumentNullException("Não exite cliente cadastrado");
             }
 
-            context.Remove(cliente);
+            context.Remove(clienteDB);
             context.SaveChanges();
 
         }
 
+        private int? GetClienteId()
+        {
+                var clienteId = _contextAccessor.HttpContext.Session.GetInt32("id");
+            return clienteId;
+        }
+
+        private void SetClienteId(int clienteId)
+        {
+            _contextAccessor.HttpContext.Session.SetInt32("id", clienteId);
+        }
 
     }
 }

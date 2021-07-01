@@ -10,7 +10,8 @@
 
 <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="~/css/style-wp.css" rel="stylesheet" />
+    @*<link href="~/css/style-wp.css" rel="stylesheet" />*@
+    <link href="~/css/style-lista.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -27,14 +28,8 @@
                 <thead>
                     <tr class="cabecalho">
                         <th>Nome</th>
-                        <th>Rua</th>
                         <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Complemento</th>
-                        <th>Bairro</th>
-                        <th>Municipio</th>
-                        <th>UF</th>
-                        <th>CEP</th>
+
                     </tr>
                 </thead>
                 <tbody id="tabela-clientes">
@@ -42,16 +37,9 @@
                     {
                         <tr class="cliente-tr">
                             <td class="info-nome">@cliente.Nome</td>
-                            <td>@cliente.Rua</td>
                             <td>@cliente.Email</td>
-                            <td>@cliente.Telefone</td>
-                            <td>@cliente.Complemento</td>
-                            <td>@cliente.Bairro</td>
-                            <td>@cliente.Municipio</td>
-                            <td>@cliente.UF</td>
-                            <td>@cliente.CEP</td>
-                            <td><a asp-controller="Cliente " asp-action="UpdateCadastro" asp-route-id="@cliente.Id" class="btn-voltar">Editar</a></td>
-                            <td><a asp-controller="Cliente " asp-action="DeletarCliente" asp-route-id="@cliente.Id" class="btn-voltar">Deletar</a></td>
+                            <td><a asp-controller="Cliente" asp-action="Editar" asp-route-id="@cliente.Id" class="btn-voltar">Editar</a></td>
+                            <td><a asp-controller="Cliente" asp-action="Deletar" asp-route-id="@cliente.Id" class="btn-voltar">Deletar</a></td>
                         </tr>
                     }
                 </tbody>

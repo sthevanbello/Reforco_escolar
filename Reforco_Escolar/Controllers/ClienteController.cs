@@ -41,6 +41,24 @@ namespace Reforco_Escolar.Controllers
 
         }
 
+        public IActionResult Deletar(int id)
+        {
+            var cliente = _clienteRepository.GetClienteUnico(id);
+
+            ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
+            return View(clienteViewModel);
+        }
+
+        public IActionResult Editar(int id)
+        {
+            var cliente = _clienteRepository.GetClienteUnico(id);
+            
+
+            ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
+
+            return View(clienteViewModel);
+        }
+
 
     }
 }

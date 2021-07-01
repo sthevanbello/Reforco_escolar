@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ClienteViewModel 
+<h1>Editar</h1>
+
+<table>
+    <thead>
+        <tr class="cabecalho">
+            <th>Nome</th>
+            <th>Rua</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>Municipio</th>
+            <th>UF</th>
+            <th>CEP</th>
+        </tr>
+    </thead>
+    <tbody id="tabela-clientes">
+        
+        
+            <tr class="cliente-tr">
+                <td class="info-nome">@Model.Cliente.Nome</td>
+                <td>@Model.Cliente.Rua</td>
+                <td>@Model.Cliente.Email</td>
+                <td>@Model.Cliente.Telefone</td>
+                <td>@Model.Cliente.Complemento</td>
+                <td>@Model.Cliente.Bairro</td>
+                <td>@Model.Cliente.Municipio</td>
+                <td>@Model.Cliente.UF</td>
+                <td>@Model.Cliente.CEP</td>
+            </tr>
+        
+    </tbody>
+</table>
