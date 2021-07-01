@@ -7,7 +7,7 @@ namespace Reforco_Escolar.Repositories
     {
         IList<Cliente> GetClientes();
         Cliente GetClienteUnico(int id);
-        Cliente UpdateCadastro(Cliente cliente);
+        Cliente UpdateCadastro(int id, Cliente cliente);
         void IncluirCliente(Cliente novoCliente);
         void DeletarCliente(int id);
 

@@ -42,14 +42,15 @@ namespace Reforco_Escolar.Models
 
         internal void Update(Cliente novoCliente)
         {
-            Bairro = novoCliente.Bairro;
-            CEP = novoCliente.CEP;
-            Complemento = novoCliente.Complemento;
-            Email = novoCliente.Email;
-            Municipio = novoCliente.Municipio;
             Nome = novoCliente.Nome;
+            Rua = novoCliente.Rua;
+            Email = novoCliente.Email;
             Telefone = novoCliente.Telefone;
+            Complemento = novoCliente.Complemento;
+            Bairro = novoCliente.Bairro;
+            Municipio = novoCliente.Municipio;
             UF = novoCliente.UF;
+            CEP = novoCliente.CEP;
 
         }
 

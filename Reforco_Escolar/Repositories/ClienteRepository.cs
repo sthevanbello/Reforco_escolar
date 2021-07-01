@@ -31,9 +31,9 @@ namespace Reforco_Escolar.Repositories
             return clienteDB;
         }
 
-        public Cliente UpdateCadastro(Cliente cliente)
+        public Cliente UpdateCadastro(int id, Cliente cliente)
         {
-            var cadastroDB = dbSet.Where(c => c.Id == cliente.Id).SingleOrDefault();
+            var cadastroDB = dbSet.Where(c => c.Id == id).SingleOrDefault();
 
             if (cadastroDB == null)
             {
@@ -45,7 +45,7 @@ namespace Reforco_Escolar.Repositories
             }
             context.SaveChangesAsync();
 
-            return cliente;
+            return cadastroDB;
 
         }
 
@@ -70,8 +70,8 @@ namespace Reforco_Escolar.Repositories
 
             context.Remove(clienteDB);
             context.SaveChanges();
-
         }
+
 
         private int? GetClienteId()
         {

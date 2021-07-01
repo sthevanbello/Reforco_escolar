@@ -3,37 +3,61 @@
     ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model ClienteViewModel 
+@model ClienteViewModel
 <h1>Editar</h1>
 
-<table>
-    <thead>
-        <tr class="cabecalho">
-            <th>Nome</th>
-            <th>Rua</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            <th>Complemento</th>
-            <th>Bairro</th>
-            <th>Municipio</th>
-            <th>UF</th>
-            <th>CEP</th>
-        </tr>
-    </thead>
-    <tbody id="tabela-clientes">
-        
-        
-            <tr class="cliente-tr">
-                <td class="info-nome">@Model.Cliente.Nome</td>
-                <td>@Model.Cliente.Rua</td>
-                <td>@Model.Cliente.Email</td>
-                <td>@Model.Cliente.Telefone</td>
-                <td>@Model.Cliente.Complemento</td>
-                <td>@Model.Cliente.Bairro</td>
-                <td>@Model.Cliente.Municipio</td>
-                <td>@Model.Cliente.UF</td>
-                <td>@Model.Cliente.CEP</td>
-            </tr>
-        
-    </tbody>
-</table>
+<form asp-controller="Cliente" asp-action="Editar" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="Cliente.Id" />
+        <label>Nome</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Nome">
+        <span asp-validation-for="Cliente.Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Rua</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Rua">
+        <span asp-validation-for="Cliente.Rua" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>E-mail</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Email">
+        <span asp-validation-for="Cliente.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+
+        <label>Telefone</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Telefone">
+        <span asp-validation-for="Cliente.Telefone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+
+        <label>Complemento</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Complemento">
+        <span asp-validation-for="Cliente.Complemento" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+
+        <label>Bairro</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Bairro">
+        <span asp-validation-for="Cliente.Bairro" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+
+        <label>Municipio</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.Municipio">
+        <span asp-validation-for="Cliente.Municipio" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+
+        <tlabelh>UF</tlabelh>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.UF">
+        <span asp-validation-for="Cliente.UF" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>CEP</label>
+        <input type="text" class="info-nome" asp-for="@Model.Cliente.CEP">
+        <span asp-validation-for="Cliente.CEP" class="text-danger"></span>
+    </div>
+
+    <input type="submit" value="Salvar" class="btn-primary">
+</form>

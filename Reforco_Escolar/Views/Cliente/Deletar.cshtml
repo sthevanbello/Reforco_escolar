@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model ClienteViewModel
-<h1>Deletar</h1>
+<h1>Tem certeza de que gostaria de deletar o cliente?</h1>
 
 <table>
     <thead>
@@ -36,4 +36,10 @@
         </tr>
 
     </tbody>
+
 </table>
+<form asp-action="Deletar">
+    <input type="hidden" asp-for="Cliente.Id" />
+    <input type="submit" value="Deletar" class="btn btn-danger" />
+    <a asp-action="Lista">Voltar para a lista</a>
+</form>
