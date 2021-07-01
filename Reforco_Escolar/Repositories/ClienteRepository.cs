@@ -10,10 +10,10 @@ namespace Reforco_Escolar.Repositories
 {
     public class ClienteRepository : BaseRepository<Cliente>, IClienteRepository
     {
-       
+
         public ClienteRepository(ApplicationContext context) : base(context)
         {
-            
+
         }
 
         public IList<Cliente> GetClientes()
@@ -21,19 +21,21 @@ namespace Reforco_Escolar.Repositories
             return dbSet.ToList();
         }
 
-        public async void Update(Cliente cliente)
+        public Cliente UpdateCadastro(Cliente cliente)
         {
-            var cadastroDB =
-                await dbSet.Where(c => c.Id == cliente.Id)
-                .SingleOrDefaultAsync();
+            var cadastroDB = dbSet.Where(c => c.Id == cliente.Id).SingleOrDefault();
 
             if (cadastroDB == null)
             {
-                throw new ArgumentNullException("Cliente inexistente");
+                IncluirCliente(cliente);
             }
+            else
+            {
+                cadastroDB.Update(cliente);
+            }
+            context.SaveChangesAsync();
 
-            cadastroDB.Update(cliente);
-            await context.SaveChangesAsync();
+            return cliente;
 
         }
 
@@ -44,6 +46,20 @@ namespace Reforco_Escolar.Repositories
                 dbSet.Add(novoCliente);
                 context.SaveChanges();
             }
+
+        }
+
+        public void DeletarCliente(Cliente cliente)
+        {
+            var cadastroDB = dbSet.Where(c => c.Id == cliente.Id).SingleOrDefault();
+
+            if (cliente == null)
+            {
+                throw new ArgumentNullException("Não exite cliente cadastrado");
+            }
+
+            context.Remove(cliente);
+            context.SaveChanges();
 
         }
 

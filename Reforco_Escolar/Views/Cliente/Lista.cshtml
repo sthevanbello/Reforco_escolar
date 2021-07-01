@@ -50,12 +50,16 @@
                             <td>@cliente.Municipio</td>
                             <td>@cliente.UF</td>
                             <td>@cliente.CEP</td>
+                            <td><a asp-controller="Cliente " asp-action="UpdateCadastro" asp-route-id="@cliente.Id" class="btn-voltar">Editar</a></td>
+                            <td><a asp-controller="Cliente " asp-action="DeletarCliente" asp-route-id="@cliente.Id" class="btn-voltar">Deletar</a></td>
                         </tr>
                     }
                 </tbody>
+
             </table>
 
             <a asp-controller="Basic" asp-action="Index" class="btn-voltar">Voltar</a>
+
 
         </section>
 

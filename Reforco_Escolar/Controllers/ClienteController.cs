@@ -33,8 +33,12 @@ namespace Reforco_Escolar.Controllers
         [HttpPost]
         public IActionResult Resumo(Cliente cliente)
         {
-            
-            return View(cliente);
+            if (ModelState.IsValid)
+            {
+                return View( _clienteRepository.UpdateCadastro(cliente));
+            }
+            return RedirectToAction("Cadastro");
+
         }
 
 

@@ -6,7 +6,8 @@ namespace Reforco_Escolar.Repositories
     public interface IClienteRepository
     {
         IList<Cliente> GetClientes();
-        void Update(Cliente cliente);
+        Cliente UpdateCadastro(Cliente cliente);
         void IncluirCliente(Cliente novoCliente);
+        void DeletarCliente(Cliente cliente);
     }
 }
