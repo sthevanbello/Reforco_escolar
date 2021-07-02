@@ -30,16 +30,20 @@ namespace Reforco_Escolar.Controllers
             return View(clientes);
         }
 
-        //[HttpPost]
-        //public IActionResult Resumo(Cliente cliente)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        return View( _clienteRepository.UpdateCadastro(cliente));
-        //    }
-        //    return RedirectToAction("Cadastro");
+        [HttpPost]
+        public IActionResult Resumo(Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                _clienteRepository.IncluirCliente(cliente);
 
-        //}
+                ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
+
+                return View(clienteViewModel);
+            }
+            return RedirectToAction("Cadastro");
+
+        }
 
         public IActionResult Deletar(int id)
         {
@@ -48,6 +52,7 @@ namespace Reforco_Escolar.Controllers
             ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
             return View(clienteViewModel);
         }
+
         [HttpPost]
         public IActionResult Deletar(int id, Cliente cliente)
         {
@@ -80,9 +85,12 @@ namespace Reforco_Escolar.Controllers
         {
             try
             {
-
-                _clienteRepository.UpdateCadastro(id, cliente);
-                return RedirectToAction(nameof(Lista));
+                if (ModelState.IsValid)
+                {
+                    _clienteRepository.UpdateCadastro(id, cliente);
+                    return RedirectToAction(nameof(Lista));
+                }
+                return RedirectToAction("Cadastro");
             }
             catch (Exception)
             {
@@ -92,6 +100,13 @@ namespace Reforco_Escolar.Controllers
 
         }
 
+        public IActionResult Detalhes(int id)
+        {
+            var cliente = _clienteRepository.GetClientes().Where(c => c.Id == id).SingleOrDefault();
+            ClienteViewModel clienteView = new ClienteViewModel(cliente);
+
+            return View(clienteView);
+        }
 
     }
 }

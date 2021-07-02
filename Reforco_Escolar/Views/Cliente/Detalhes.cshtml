@@ -1,11 +1,19 @@
 ﻿
 @{
-    ViewData["Title"] = "Deletar";
+    ViewData["Title"] = "Detalhes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model ClienteViewModel
 
-<h1>Tem certeza de que gostaria de deletar o cliente?</h1>
+@model ClienteViewModel;
+
+<h1>Detalhes</h1>
+
+
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="~/css/style-wp.css" rel="stylesheet" />
+</head>
+
 
 <table>
     <thead>
@@ -25,7 +33,7 @@
 
 
         <tr class="cliente-tr">
-            <td class="info-nome">@Model.Cliente.Nome</td>
+            <td>@Model.Cliente.Nome</td>
             <td>@Model.Cliente.Rua</td>
             <td>@Model.Cliente.Email</td>
             <td>@Model.Cliente.Telefone</td>
@@ -39,11 +47,5 @@
     </tbody>
 
 </table>
-<form asp-action="Deletar" method="post">
 
-    <input type="hidden" asp-for="Cliente.Id" />
-
-    <input type="submit" value="Deletar" class="btn btn-danger" />
-
-    <a asp-action="Lista">Voltar para a lista</a>
-</form>
+<a asp-controller="Cliente" asp-action="Lista">Voltar à Lista</a>

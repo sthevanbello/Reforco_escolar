@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model Cliente;
+@model ClienteViewModel;
 
-<h1>Resumo</h1>
+<h1>Cadastro efetuado com sucesso</h1>
 
 
 <head>
@@ -14,57 +14,37 @@
     <link href="~/css/style-wp.css" rel="stylesheet" />
 </head>
 
-<body>
+
+<table>
+    <thead>
+        <tr class="cabecalho">
+            <th>Nome</th>
+            <th>Rua</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>Municipio</th>
+            <th>UF</th>
+            <th>CEP</th>
+        </tr>
+    </thead>
+    <tbody id="tabela-clientes">
 
 
-    <main>
-        <h1 class="titulo">Reforço Acadêmico</h1>
-        <section>
-            <h2>Clientes</h2>
-            <div class="buscador">
-                <input type="text" name="filtro" id="filtro-tabela" class="filtrar-tabela" placeholder="Digite o nome do Cliente">
-            </div>
-            <table>
-                <thead>
-                    <tr class="cabecalho">
-                        <th>Nome</th>
-                        <th>Rua</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Complemento</th>
-                        <th>Bairro</th>
-                        <th>Municipio</th>
-                        <th>UF</th>
-                        <th>CEP</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-clientes">
-                    
-                    
-                        <tr class="cliente-tr">
-                            <td class="info-nome">@Model.Nome</td>
-                            <td>@Model.Rua</td>
-                            <td>@Model.Email</td>
-                            <td>@Model.Telefone</td>
-                            <td>@Model.Complemento</td>
-                            <td>@Model.Bairro</td>
-                            <td>@Model.Municipio</td>
-                            <td>@Model.UF</td>
-                            <td>@Model.CEP</td>
-                        </tr>
-                    
-                </tbody>
-            </table>
+        <tr class="cliente-tr">
+            <td>@Model.Cliente.Nome</td>
+            <td>@Model.Cliente.Rua</td>
+            <td>@Model.Cliente.Email</td>
+            <td>@Model.Cliente.Telefone</td>
+            <td>@Model.Cliente.Complemento</td>
+            <td>@Model.Cliente.Bairro</td>
+            <td>@Model.Cliente.Municipio</td>
+            <td>@Model.Cliente.UF</td>
+            <td>@Model.Cliente.CEP</td>
+        </tr>
 
-            <a asp-controller="Basic" asp-action="Index" class="btn-voltar">Voltar</a>
+    </tbody>
 
-        </section>
-
-    </main>
-
-    @section Scripts{
-
-        <script src="~/js/remover.js"></script>
-        <script src="~/js/filtro.js"></script>
-    }
-</body>
+</table>
+    <a asp-controller="Basic" asp-action="Index">Voltar à tela inicial</a>

@@ -38,7 +38,7 @@ namespace Reforco_Escolar.Models
 
         [Required(ErrorMessage = "CEP é obrigatório")]
         public string CEP { get; set; } = "";
-        
+
 
         internal void Update(Cliente novoCliente)
         {
@@ -55,6 +55,6 @@ namespace Reforco_Escolar.Models
         }
 
 
-        
+
     }
 }
