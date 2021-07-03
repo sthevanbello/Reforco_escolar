@@ -19,6 +19,7 @@
     <div class="online-w3l-form">
         <div class="appointment-w3">
             <form asp-controller="Cliente" asp-action="Resumo" method="post">
+                <input type="hidden" asp-for="@Model.Id" />
                 <div class="main">
                     <div class="form-left-w3l">
                         <input type="text" class="top-up" asp-for="@Model.Nome" placeholder="Nome">

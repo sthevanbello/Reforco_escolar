@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Lista";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 @model List<Cliente>;
-
 
 
 <head>
@@ -33,6 +33,7 @@
                     </tr>
                 </thead>
                 <tbody id="tabela-clientes">
+                    
                     @foreach (var cliente in Model)
                     {
                         <tr class="cliente-tr">

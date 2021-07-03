@@ -17,12 +17,15 @@ namespace Reforco_Escolar.Controllers
             _clienteRepository = clienteRepository;
         }
 
+
+
         public IActionResult Cadastro()
         {
 
             return View();
         }
 
+        //[ValidateAntiForgeryToken]
         public IActionResult Lista()
         {
             var clientes = _clienteRepository.GetClientes();
@@ -31,6 +34,7 @@ namespace Reforco_Escolar.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Resumo(Cliente cliente)
         {
             if (ModelState.IsValid)
@@ -45,6 +49,7 @@ namespace Reforco_Escolar.Controllers
 
         }
 
+        
         public IActionResult Deletar(int id)
         {
             var cliente = _clienteRepository.GetClienteUnico(id);
@@ -54,6 +59,7 @@ namespace Reforco_Escolar.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Deletar(int id, Cliente cliente)
         {
             try
@@ -81,6 +87,7 @@ namespace Reforco_Escolar.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Editar(int id, Cliente cliente)
         {
             try
