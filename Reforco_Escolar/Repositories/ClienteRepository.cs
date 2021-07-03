@@ -18,48 +18,48 @@ namespace Reforco_Escolar.Repositories
             _contextAccessor = contextAccessor;
         }
 
-        public IList<Cliente> GetClientes()
+        public async Task<IList<Cliente>> GetClientesAsync()
         {
-            return dbSet.ToList();
+            return await dbSet.ToListAsync();
         }
 
-        public Cliente GetClienteUnico(int id)
+        public async Task<Cliente> GetClienteUnicoAsync(int id)
         {
-            var clienteDB = dbSet.Where(c => c.Id == id).SingleOrDefault();
+            var clienteDB = await dbSet.Where(c => c.Id == id).SingleOrDefaultAsync();
 
             
             return clienteDB;
         }
 
-        public Cliente UpdateCadastro(int id, Cliente cliente)
+        public async Task<Cliente> UpdateCadastroAsync(int id, Cliente cliente)
         {
             var cadastroDB = dbSet.Where(c => c.Id == id).SingleOrDefault();
 
             if (cadastroDB == null)
             {
-                IncluirCliente(cliente);
+                await IncluirClienteAsync(cliente);
             }
             else
             {
                 cadastroDB.Update(cliente);
             }
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
 
             return cadastroDB;
 
         }
 
-        public void IncluirCliente(Cliente novoCliente)
+        public async Task IncluirClienteAsync(Cliente novoCliente)
         {
             if (novoCliente != null)
             {
                 dbSet.Add(novoCliente);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
 
         }
 
-        public void DeletarCliente(int id)
+        public async Task DeletarClienteAsync(int id)
         {
             var clienteDB = dbSet.Where(c => c.Id == id).SingleOrDefault();
 
@@ -69,7 +69,7 @@ namespace Reforco_Escolar.Repositories
             }
 
             context.Remove(clienteDB);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
 

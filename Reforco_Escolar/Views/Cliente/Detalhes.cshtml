@@ -14,38 +14,37 @@
     <link href="~/css/style-wp.css" rel="stylesheet" />
 </head>
 
+    <table>
+        <thead>
+            <tr class="cabecalho">
+                <th>Nome</th>
+                <th>Rua</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Complemento</th>
+                <th>Bairro</th>
+                <th>Municipio</th>
+                <th>UF</th>
+                <th>CEP</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-clientes">
 
-<table>
-    <thead>
-        <tr class="cabecalho">
-            <th>Nome</th>
-            <th>Rua</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            <th>Complemento</th>
-            <th>Bairro</th>
-            <th>Municipio</th>
-            <th>UF</th>
-            <th>CEP</th>
-        </tr>
-    </thead>
-    <tbody id="tabela-clientes">
 
+            <tr class="cliente-tr">
+                <td>@Model.Cliente.Nome</td>
+                <td>@Model.Cliente.Rua</td>
+                <td>@Model.Cliente.Email</td>
+                <td>@Model.Cliente.Telefone</td>
+                <td>@Model.Cliente.Complemento</td>
+                <td>@Model.Cliente.Bairro</td>
+                <td>@Model.Cliente.Municipio</td>
+                <td>@Model.Cliente.UF</td>
+                <td>@Model.Cliente.CEP</td>
+            </tr>
 
-        <tr class="cliente-tr">
-            <td>@Model.Cliente.Nome</td>
-            <td>@Model.Cliente.Rua</td>
-            <td>@Model.Cliente.Email</td>
-            <td>@Model.Cliente.Telefone</td>
-            <td>@Model.Cliente.Complemento</td>
-            <td>@Model.Cliente.Bairro</td>
-            <td>@Model.Cliente.Municipio</td>
-            <td>@Model.Cliente.UF</td>
-            <td>@Model.Cliente.CEP</td>
-        </tr>
+        </tbody>
 
-    </tbody>
+    </table>
 
-</table>
-
-<a asp-controller="Cliente" asp-action="Lista">Voltar à Lista</a>
+    <a asp-controller="Cliente" asp-action="Lista">Voltar à Lista</a>

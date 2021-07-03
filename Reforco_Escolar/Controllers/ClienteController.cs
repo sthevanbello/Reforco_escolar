@@ -26,9 +26,9 @@ namespace Reforco_Escolar.Controllers
         }
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        public IActionResult Lista()
+        public async Task<IActionResult> Lista()
         {
-            var clientes = _clienteRepository.GetClientes();
+            var clientes = await _clienteRepository.GetClientesAsync();
 
             List<ClienteViewModel> clienteViews = new List<ClienteViewModel>();
 
@@ -43,11 +43,11 @@ namespace Reforco_Escolar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Resumo(Cliente cliente)
+        public async Task<IActionResult> Resumo(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                _clienteRepository.IncluirCliente(cliente);
+                await _clienteRepository.IncluirClienteAsync(cliente);
 
                 ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
 
@@ -58,9 +58,9 @@ namespace Reforco_Escolar.Controllers
         }
 
 
-        public IActionResult Deletar(int id)
+        public async Task<IActionResult> Deletar(int id)
         {
-            var cliente = _clienteRepository.GetClienteUnico(id);
+            var cliente = await _clienteRepository.GetClienteUnicoAsync(id);
 
             ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
             return View(clienteViewModel);
@@ -68,11 +68,11 @@ namespace Reforco_Escolar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Deletar(int id, Cliente cliente)
+        public async Task<IActionResult> Deletar(int id, Cliente cliente)
         {
             try
             {
-                _clienteRepository.DeletarCliente(id);
+                await _clienteRepository.DeletarClienteAsync(id);
                 return RedirectToAction(nameof(Lista));
             }
             catch (Exception)
@@ -84,9 +84,9 @@ namespace Reforco_Escolar.Controllers
         }
 
 
-        public IActionResult Editar(int id)
+        public async Task<IActionResult> Editar(int id)
         {
-            var cliente = _clienteRepository.GetClienteUnico(id);
+            var cliente = await _clienteRepository.GetClienteUnicoAsync(id);
 
 
             ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
@@ -96,13 +96,13 @@ namespace Reforco_Escolar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar(int id, Cliente cliente)
+        public async Task<IActionResult> Editar(int id, Cliente cliente)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _clienteRepository.UpdateCadastro(id, cliente);
+                    await _clienteRepository.UpdateCadastroAsync(id, cliente);
                     return RedirectToAction(nameof(Lista));
                 }
                 return RedirectToAction("Cadastro");
@@ -115,9 +115,12 @@ namespace Reforco_Escolar.Controllers
 
         }
 
-        public IActionResult Detalhes(int id)
+        public async Task<IActionResult> Detalhes(int id)
         {
-            var cliente = _clienteRepository.GetClientes().Where(c => c.Id == id).SingleOrDefault();
+            var clienteAsync = await _clienteRepository.GetClientesAsync();
+
+            var cliente = clienteAsync.FirstOrDefault(c => c.Id == id);
+
             ClienteViewModel clienteView = new ClienteViewModel(cliente);
 
             return View(clienteView);
