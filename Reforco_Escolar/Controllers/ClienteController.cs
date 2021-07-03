@@ -24,14 +24,22 @@ namespace Reforco_Escolar.Controllers
 
             return View();
         }
-
+        //[HttpPost]
         //[ValidateAntiForgeryToken]
         public IActionResult Lista()
         {
             var clientes = _clienteRepository.GetClientes();
 
-            return View(clientes);
+            List<ClienteViewModel> clienteViews = new List<ClienteViewModel>();
+
+            foreach (var cliente in clientes)
+            {
+                clienteViews.Add(new ClienteViewModel(cliente));
+            }
+            return View(clienteViews);
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -49,7 +57,7 @@ namespace Reforco_Escolar.Controllers
 
         }
 
-        
+
         public IActionResult Deletar(int id)
         {
             var cliente = _clienteRepository.GetClienteUnico(id);

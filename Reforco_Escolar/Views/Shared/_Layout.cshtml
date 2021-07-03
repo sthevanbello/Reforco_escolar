@@ -12,7 +12,6 @@
     <header>
         <nav class="nav-menu">
             @*<div class="container">*@
-
             <a class="logo" asp-area="" asp-controller="Basic" asp-action="Index">Serviços Acadêmicos</a>
             <div class="mobile-menu">
                 <div class="line1"></div>
@@ -21,6 +20,7 @@
             </div>
 
             <ul class="nav-list">
+            <form asp-action="Index" method="post"></form>
                 <li class="nav-li"><a asp-area="" asp-controller="Basic" asp-action="Index">Home</a> </li>
                 <li class="nav-li"><a asp-area="" asp-controller="Basic" asp-action="Servico">Serviços</a></li>
                 <li class="nav-li"><a asp-area="" asp-controller="Basic" asp-action="Contato">Contato</a></li>

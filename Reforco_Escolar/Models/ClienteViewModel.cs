@@ -8,6 +8,7 @@ namespace Reforco_Escolar.Models
     public class ClienteViewModel
     {
         public Cliente Cliente { get; set; }
+        
 
         public ClienteViewModel(Cliente cliente)
         {

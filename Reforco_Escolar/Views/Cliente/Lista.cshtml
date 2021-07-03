@@ -5,8 +5,9 @@
     
 }
 
-@model List<Cliente>;
+@model List<ClienteViewModel>;
 
+    
 
 <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -37,11 +38,11 @@
                     @foreach (var cliente in Model)
                     {
                         <tr class="cliente-tr">
-                            <td class="info-nome">@cliente.Nome</td>
-                            <td>@cliente.Email</td>
-                            <td><a asp-controller="Cliente" asp-action="Editar" asp-route-id="@cliente.Id" class="btn-voltar">Editar</a></td>
-                            <td><a asp-controller="Cliente" asp-action="Deletar" asp-route-id="@cliente.Id" class="btn-voltar">Deletar</a></td>
-                            <td><a asp-controller="Cliente" asp-action="Detalhes" asp-route-id="@cliente.Id" class="btn-voltar">Detalhes</a></td>
+                            <td class="info-nome">@cliente.Cliente.Nome</td>
+                            <td>@cliente.Cliente.Email</td>
+                            <td><a asp-controller="Cliente" asp-action="Editar" asp-route-id="@cliente.Cliente.Id" class="btn-voltar">Editar</a></td>
+                            <td><a asp-controller="Cliente" asp-action="Deletar" asp-route-id="@cliente.Cliente.Id" class="btn-voltar">Deletar</a></td>
+                            <td><a asp-controller="Cliente" asp-action="Detalhes" asp-route-id="@cliente.Cliente.Id" class="btn-voltar">Detalhes</a></td>
                         </tr>
                     }
                 </tbody>
