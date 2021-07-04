@@ -1,0 +1,128 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<head>
+    <title>Spin Login Form Responsive Widget Template :: w3layouts</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Spin Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Stylesheets -->
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/css/style-login.css" rel="stylesheet" />
+    <!--// Stylesheets -->
+    <!--fonts-->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//fonts-->
+</head>
+
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <div class="clear-loading spinner">
+        <span></span>
+    </div>
+    <div class="w3ls-login box box--big">
+        <!-- form starts here -->
+        <form action="#" method="post">
+            <div class="agile-field-txt">
+                <label><i class="fa fa-user" aria-hidden="true"></i> E-mail de cadastro </label>
+                <input type="text" asp-for="Input.Email" placeholder="E-mail" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="agile-field-txt">
+                <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> Digite a senha </label>
+                <input type="password" asp-for="Input.Password" placeholder="Senha" id="myInput1" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                <div class="form-group">
+                    <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> Confirme a senha </label>
+                    <input type="password" asp-for="Input.ConfirmPassword" placeholder="Senha" id="myInput2" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="agile_label">
+                    <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
+                    <label class="check" for="check3">Show password</label>
+                </div>
+
+            </div>
+            <!-- script for show password -->
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("myInput1");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    var y = document.getElementById("myInput2");
+                    if (y.type === "password") {
+                        y.type = "text";
+                    } else {
+                        y.type = "password";
+                    }
+                }
+            </script>
+            <!-- //end script -->
+            @*<input type="submit" value="LOGIN">*@
+            <button type="submit" @*class="btn btn-primary"*@>Registrar</button>
+        </form>
+    </div>
+    <!-- //form ends here -->
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to register.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            External
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+    <!--copyright-->
+    <div class="copy-wthree">
+        <p>
+            © 2018 Spin Login Form . All Rights Reserved | Design by
+            <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+        </p>
+    </div>
+    <!--//copyright-->
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
