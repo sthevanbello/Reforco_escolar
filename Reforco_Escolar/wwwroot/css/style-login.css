@@ -91,7 +91,7 @@ h1 {
     background: transparent;
 }
 
-.check1 {
+.check {
     text-align: left;
 }
 
@@ -458,5 +458,6 @@ label.switch {
         padding: 25px 8px;
     }
 }
+
 
 /*--//responsive--*/

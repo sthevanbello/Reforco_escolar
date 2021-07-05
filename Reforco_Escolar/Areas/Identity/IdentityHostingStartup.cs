@@ -17,13 +17,7 @@ namespace Reforco_Escolar.Areas.Identity
             
 
             builder.ConfigureServices((context, services) => {
-                //services.AddDbContext<ApplicationDbContext>(options =>
-                //options.UseSqlServer(
-                //    context.Configuration.GetConnectionString("DefaultConnection")));
-                //services.AddDatabaseDeveloperPageExceptionFilter();
-
-                //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                //.AddEntityFrameworkStores<ApplicationDbContext>();
+                
             });
         }
     }
