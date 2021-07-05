@@ -10,7 +10,7 @@ namespace Reforco_Escolar.Models
     {
 
 
-        [MinLength(3, ErrorMessage = "Nome deve ter no mínimo 5 caracteres")]
+        [MinLength(5, ErrorMessage = "Nome deve ter no mínimo 5 caracteres")]
         [MaxLength(50, ErrorMessage = "Nome deve ter no máximo 50 caracteres")]
         [Required(ErrorMessage = "Nome é obrigatório")]
         public string Nome { get; set; } = "";

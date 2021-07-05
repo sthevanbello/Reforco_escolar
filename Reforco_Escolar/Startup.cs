@@ -31,6 +31,9 @@ namespace Reforco_Escolar
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
+
+            #region SQLServer Default Identity
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -38,8 +41,13 @@ namespace Reforco_Escolar
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            #endregion
+
+
             services.AddControllersWithViews();
 
+            #region SQLServer
 
             string connectionString = Configuration.GetConnectionString("SQLServer");
 
@@ -48,6 +56,8 @@ namespace Reforco_Escolar
             options.UseSqlServer(connectionString)
 
             );
+
+            #endregion
 
             // Cria a instância de DataService
             services.AddTransient<IDataService, DataService>();

@@ -3,12 +3,12 @@ body {
     font-size: 100%;
     background: url(../imagens/bg.jpg)no-repeat center;
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     text-align: center;
-    min-height: 100vh;
+    height: 88vh;
+    top: 6vh;
+    bottom: 6vh;
 }
 
 .w3ls-login {
@@ -40,7 +40,7 @@ h1 {
 }
 
 .w3ls-login form {
-    position: relative;
+    position: center;
     max-width: 550px;
     margin: 0 5vw;
     padding: 3vw;
@@ -110,16 +110,15 @@ label.check {
 .agile-right {
     float: right;
     margin: 20px 10px 0 0;
-
 }
 
-.agile-right a {
-    font-size: 15px;
-    color: #fff;
-    margin-bottom: 10px;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-}
+    .agile-right a {
+        font-size: 15px;
+        color: #fff;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+    }
 
 .w3ls-login.w3l-sub {
     margin-top: 1em;
@@ -141,46 +140,45 @@ label.check {
     height: 100px;
 }
 
-.spinner>span,
-.spinner>span:before,
-.spinner>span:after {
-    content: "";
-    display: block;
-    border-radius: 50%;
-    border: 2px solid #fd5c63;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    .spinner > span,
+    .spinner > span:before,
+    .spinner > span:after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        border: 2px solid #fd5c63;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
 
-}
+    .spinner > span {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-left-color: transparent;
+        -webkit-animation: effect-2 2s infinite linear;
+        -moz-animation: effect-2 2s infinite linear;
+        -o-animation: effect-2 2s infinite linear;
+        animation: effect-2 2s infinite linear;
+    }
 
-.spinner>span {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-left-color: transparent;
-    -webkit-animation: effect-2 2s infinite linear;
-    -moz-animation: effect-2 2s infinite linear;
-    -o-animation: effect-2 2s infinite linear;
-    animation: effect-2 2s infinite linear;
-}
+        .spinner > span:before {
+            width: 75%;
+            height: 75%;
+            border-right-color: transparent;
+        }
 
-.spinner>span:before {
-    width: 75%;
-    height: 75%;
-    border-right-color: transparent;
-}
-
-.spinner>span:after {
-    width: 50%;
-    height: 50%;
-    border-bottom-color: transparent;
-}
+        .spinner > span:after {
+            width: 50%;
+            height: 50%;
+            border-bottom-color: transparent;
+        }
 
 @-webkit-keyframes effect-2 {
     from {
@@ -249,11 +247,11 @@ label.check {
     -ms-transition: 0.5s all ease;
 }
 
-.w3ls-login input[type=submit]:hover {
-    border: 1px solid #fd5c63;
-    color: #fd5c63;
-    background: transparent;
-}
+    .w3ls-login input[type=submit]:hover {
+        border: 1px solid #fd5c63;
+        color: #fd5c63;
+        background: transparent;
+    }
 
 .w3ls-bot {
     margin-top: 0em;
@@ -306,17 +304,17 @@ label.switch {
     border-radius: 10px;
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 10px;
-    width: 10px;
-    left: 4px;
-    bottom: 5px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 10px;
+        left: 4px;
+        bottom: 5px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
 
 .botao:checked + .slider {
     background-color: #00ba9d;
@@ -352,26 +350,26 @@ label.switch {
     padding: 2em 0 2em;
 }
 
-.copy-wthree p {
-    color: #ccc;
-    font-size: 16px;
-    letter-spacing: 1px;
-    line-height: 1.8;
-    margin: 0 3vw;
-}
+    .copy-wthree p {
+        color: #ccc;
+        font-size: 16px;
+        letter-spacing: 1px;
+        line-height: 1.8;
+        margin: 0 3vw;
+    }
 
-.copy-wthree p a {
-    color: #fff;
-    transition: 0.5s all ease;
-    -webkit-transition: 0.5s all ease;
-    -moz-transition: 0.5s all ease;
-    -o-transition: 0.5s all ease;
-    -ms-transition: 0.5s all ease;
-}
+        .copy-wthree p a {
+            color: #fff;
+            transition: 0.5s all ease;
+            -webkit-transition: 0.5s all ease;
+            -moz-transition: 0.5s all ease;
+            -o-transition: 0.5s all ease;
+            -ms-transition: 0.5s all ease;
+        }
 
-.copy-wthree p a:hover {
-    color: #fd5c63;
-}
+            .copy-wthree p a:hover {
+                color: #fd5c63;
+            }
 
 /*--//copyright--*/
 
@@ -407,6 +405,7 @@ label.switch {
     }
 
     .w3ls-login form {
+        width: 30%;
         padding: 7.5vw;
     }
 }
@@ -418,11 +417,11 @@ label.switch {
 
     .w3ls-login input[type="text"],
     .w3ls-login input[type="password"] {
-        font-size: 14px;
-        padding: 13px 20px;
+        font-size: 10px;
+        padding: 10px 15px;
     }
 
-    .spinner>span {
+    .spinner > span {
         width: 80%;
         height: 80%;
     }

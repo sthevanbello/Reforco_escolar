@@ -12,16 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Spin Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- //Meta-Tags -->
     <!-- Stylesheets -->
     <link href="~/css/font-awesome.css" rel="stylesheet" />
     <link href="~/css/style-login.css" rel="stylesheet" />
@@ -38,7 +28,7 @@
     </div>
     <div class="w3ls-login box box--big">
         <!-- form starts here -->
-        <form action="#" method="post">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div class="agile-field-txt">
                 <label><i class="fa fa-user" aria-hidden="true"></i> E-mail de cadastro </label>
                 <input type="text" asp-for="Input.Email" placeholder="E-mail" />
@@ -61,24 +51,7 @@
                 </div>
 
             </div>
-            <!-- script for show password -->
-            <script>
-                function myFunction() {
-                    var x = document.getElementById("myInput1");
-                    if (x.type === "password") {
-                        x.type = "text";
-                    } else {
-                        x.type = "password";
-                    }
-                    var y = document.getElementById("myInput2");
-                    if (y.type === "password") {
-                        y.type = "text";
-                    } else {
-                        y.type = "password";
-                    }
-                }
-            </script>
-            <!-- //end script -->
+
             @*<input type="submit" value="LOGIN">*@
             <button type="submit" @*class="btn btn-primary"*@>Registrar</button>
         </form>
@@ -113,16 +86,9 @@
             }
         </section>
     </div>
-    <!--copyright-->
-    <div class="copy-wthree">
-        <p>
-            © 2018 Spin Login Form . All Rights Reserved | Design by
-            <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
-        </p>
-    </div>
-    <!--//copyright-->
-</body>
 
+</body>
+<script src="~/js/register.js"></script>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
