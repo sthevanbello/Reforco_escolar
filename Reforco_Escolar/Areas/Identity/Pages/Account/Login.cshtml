@@ -27,22 +27,24 @@
     </div>
     <div class="w3ls-login box box--big">
         <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="agile-field-txt">
                 <label asp-for="Input.Email"><i class="fa fa-user" aria-hidden="true"></i>E-mail de cadastro </label>
                 <input type="text" asp-for="Input.Email" placeholder="E-mail" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="agile-field-txt">
-                <label asp-for="Input.Password"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Senha</label>
-                <input type="password" asp-for="Input.Password" placeholder="Senha" id="myInput1" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-
+                <div class="form-group">
+                    <label asp-for="Input.Password"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Senha</label>
+                    <input type="password" asp-for="Input.Password" placeholder="Senha" id="myInput1" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
                 <div class="agile_label">
                     <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
                     <label class="check" for="check3">Mostrar senha</label>
                 </div>
                 <div class="agile-right">
-                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Esqueceu a sua senha?</a>
                 </div>
 
             </div>
@@ -52,7 +54,7 @@
                     <label class="check" asp-for="Input.RememberMe">@Html.DisplayNameFor(m => m.Input.RememberMe)</label>
                 </div>
                 <div class="agile-right">
-                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cadastrar novo usuário</a>
                 </div>
             </div>
 
@@ -62,7 +64,7 @@
     </div>
     <div class="agile-field-txt">
         <section>
-            <h4>Use another service to log in.</h4>
+            <h4>Usar outro serviço de autenticação</h4>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)

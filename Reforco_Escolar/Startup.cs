@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Reforco_Escolar.Areas.Identity;
 using Reforco_Escolar.Context;
 using Reforco_Escolar.Data;
 using Reforco_Escolar.Repositories;
@@ -39,9 +40,16 @@ namespace Reforco_Escolar
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+            })
+                .AddErrorDescriber<IdentityErrorDescriberPtBr>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            
             #endregion
 
 

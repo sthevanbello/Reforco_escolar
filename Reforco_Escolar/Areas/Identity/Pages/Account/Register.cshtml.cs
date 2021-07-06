@@ -45,21 +45,21 @@ namespace Reforco_Escolar.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "E-mail é obrigatório")]
+            [Required(ErrorMessage ="E-mail é obrigatório")]
             [EmailAddress]
             [Display(Name = "E-mail")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "Campo Senha é obrigatório")]
-            [StringLength(100, ErrorMessage = "O campo {0} precisa ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
+            [Required(ErrorMessage ="Campo Senha é obrigatório")]
+            [StringLength(100, ErrorMessage ="O campo {0} precisa ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
             public string Password { get; set; }
 
-            [Required(ErrorMessage = "Confirmar senha é obrigatório")]
+            [Required(ErrorMessage ="Confirmar senha é obrigatório")]
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar Senha")]
-            [Compare("Password", ErrorMessage = "A Senha e a Confirmação da Senha são diferentes.")]
+            [Compare("Password", ErrorMessage ="A Senha e a Confirmação da Senha são diferentes.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -71,7 +71,7 @@ namespace Reforco_Escolar.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/Cliente/Cadastro");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Reforco_Escolar.Models;
 using Reforco_Escolar.Repositories;
 using System;
@@ -18,7 +19,7 @@ namespace Reforco_Escolar.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult Cadastro()
         {
 
@@ -26,6 +27,7 @@ namespace Reforco_Escolar.Controllers
         }
         //[HttpPost]
         //[ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Lista()
         {
             var clientes = await _clienteRepository.GetClientesAsync();
@@ -43,6 +45,7 @@ namespace Reforco_Escolar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Resumo(Cliente cliente)
         {
             if (ModelState.IsValid)
@@ -57,7 +60,7 @@ namespace Reforco_Escolar.Controllers
 
         }
 
-
+        [Authorize]
         public async Task<IActionResult> Deletar(int id)
         {
             var cliente = await _clienteRepository.GetClienteUnicoAsync(id);
@@ -68,6 +71,7 @@ namespace Reforco_Escolar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Deletar(int id, Cliente cliente)
         {
             try
@@ -83,7 +87,7 @@ namespace Reforco_Escolar.Controllers
 
         }
 
-
+        [Authorize]
         public async Task<IActionResult> Editar(int id)
         {
             var cliente = await _clienteRepository.GetClienteUnicoAsync(id);
@@ -96,6 +100,7 @@ namespace Reforco_Escolar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Editar(int id, Cliente cliente)
         {
             try
@@ -114,7 +119,7 @@ namespace Reforco_Escolar.Controllers
             }
 
         }
-
+        [Authorize]
         public async Task<IActionResult> Detalhes(int id)
         {
             var clienteAsync = await _clienteRepository.GetClientesAsync();
