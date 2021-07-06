@@ -1,13 +1,13 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registro de usuário";
 }
 
 
 
 <head>
-    <title>Spin Login Form Responsive Widget Template :: w3layouts</title>
+    <title> @ViewData["Title"]</title>
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -23,50 +23,50 @@
 
 <body>
     <h1>@ViewData["Title"]</h1>
-    <div class="clear-loading spinner">
+    <div class="clear-loading spinner ">
         <span></span>
     </div>
     <div class="w3ls-login box box--big">
-        <!-- form starts here -->
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div class="agile-field-txt">
-                <label><i class="fa fa-user" aria-hidden="true"></i> E-mail de cadastro </label>
+                <label asp-for="Input.Email"><i class="fa fa-user" aria-hidden="true"></i>E-mail de cadastro </label>
                 <input type="text" asp-for="Input.Email" placeholder="E-mail" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
 
             <div class="agile-field-txt">
-                <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> Digite a senha </label>
-                <input type="password" asp-for="Input.Password" placeholder="Senha" id="myInput1" class="form-control" />
+                <label asp-for="Input.Password"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Senha</label>
+                <input type="password" asp-for="Input.Password" placeholder="Senha" id="myInput1"/>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
-
+            </div>
+            <div class="agile-field-txt">
                 <div class="form-group">
-                    <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> Confirme a senha </label>
-                    <input type="password" asp-for="Input.ConfirmPassword" placeholder="Senha" id="myInput2" class="form-control" />
+                    <label asp-for="Input.ConfirmPassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Confirme a senha</label>
+                    <input type="password" asp-for="Input.ConfirmPassword" placeholder="Senha" id="myInput2"/>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="agile_label">
                     <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
-                    <label class="check" for="check3">Show password</label>
+                    <label class="check" for="check3">Mostrar senha</label>
                 </div>
-
+                <div class="agile-right">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
             </div>
-
-            @*<input type="submit" value="LOGIN">*@
-            <button type="submit" @*class="btn btn-primary"*@>Registrar</button>
+            <input type="submit" class="btn btn-primary" value="Registrar">
         </form>
     </div>
     <!-- //form ends here -->
-    <div class="col-md-6 col-md-offset-2">
+    <div  class="agile-field-txt">
         <section>
-            <h4>Use another service to register.</h4>
+            <h4>Usar outro serviço de autenticação</h4>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
                         <p>
-                            External
+                            Externo
                         </p>
                     </div>
                 }
@@ -89,6 +89,7 @@
 
 </body>
 <script src="~/js/register.js"></script>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

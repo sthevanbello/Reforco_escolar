@@ -1,6 +1,5 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 100%;
     background: url(../imagens/bg.jpg)no-repeat center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,7 +8,10 @@ body {
     height: 88vh;
     top: 6vh;
     bottom: 6vh;
+    
 }
+
+
 
 .w3ls-login {
     display: -webkit-flex;
@@ -28,13 +30,13 @@ body {
 }
 
 h1 {
-    font-size: 3.2em;
+    font-size: 1em;
     font-weight: 300;
     text-transform: capitalize;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     letter-spacing: 3px;
-    padding: 1em 1vw;
+    padding: 10px;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -56,7 +58,6 @@ h1 {
     color: #fff;
     float: left;
     margin-bottom: 15px;
-    text-transform: capitalize;
     letter-spacing: 2px;
 }
 
@@ -68,7 +69,7 @@ h1 {
 }
 
 .w3ls-login label i {
-    font-size: 1.1em;
+    font-size: 1em;
     margin-right: 3px;
     color: #fd5c63;
 }
@@ -279,12 +280,12 @@ label.switch {
     color: #fff;
 }
 
-li:nth-child(2) a,
+/*li:nth-child(2) ,
 label.switch {
     text-transform: capitalize;
     font-size: 14px;
     letter-spacing: 2px;
-}
+}*/
 
 .switch input {
     display: none;
@@ -401,7 +402,7 @@ label.switch {
 
 @media(max-width:480px) {
     h1 {
-        font-size: 2.5em;
+        font-size: 2em;
     }
 
     .w3ls-login form {
@@ -459,5 +460,18 @@ label.switch {
     }
 }
 
-
+.blur {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: fixed;
+    background: #FFF;
+    top: 0;
+    filter: blur(350px);
+    -o-filter: blur(350px);
+    -ms-filter: blur(350px);
+    -moz-filter: blur(350px);
+    -webkit-filter: blur(350px);
+    opacity: 0.4;
+}
 /*--//responsive--*/

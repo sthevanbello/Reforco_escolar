@@ -2,53 +2,65 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Entrar";
 }
+<head>
+    <title> @ViewData["Title"]</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Spin Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <!-- Stylesheets -->
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/css/style-login.css" rel="stylesheet" />
+    <!--// Stylesheets -->
+    <!--fonts-->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//fonts-->
+</head>
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="clear-loading spinner ">
+        <span></span>
     </div>
-    <div class="col-md-6 col-md-offset-2">
+    <div class="w3ls-login box box--big">
+        <form method="post">
+            <div class="agile-field-txt">
+                <label asp-for="Input.Email"><i class="fa fa-user" aria-hidden="true"></i>E-mail de cadastro </label>
+                <input type="text" asp-for="Input.Email" placeholder="E-mail" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="agile-field-txt">
+                <label asp-for="Input.Password"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Senha</label>
+                <input type="password" asp-for="Input.Password" placeholder="Senha" id="myInput1" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                <div class="agile_label">
+                    <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
+                    <label class="check" for="check3">Mostrar senha</label>
+                </div>
+                <div class="agile-right">
+                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                </div>
+
+            </div>
+            <div class="agile-field-txt">
+                <div class="agile_label">
+                    <input asp-for="Input.RememberMe" />
+                    <label class="check" asp-for="Input.RememberMe">@Html.DisplayNameFor(m => m.Input.RememberMe)</label>
+                </div>
+                <div class="agile-right">
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Registrar">
+        </form>
+
+    </div>
+    <div class="agile-field-txt">
         <section>
             <h4>Use another service to log in.</h4>
             <hr />
@@ -58,7 +70,7 @@
                     <div>
                         <p>
                             @*There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.*@
+                                for details on setting up this ASP.NET application to support logging in via external services.*@
                         </p>
                     </div>
                 }
@@ -78,7 +90,10 @@
             }
         </section>
     </div>
-</div>
+</body>
+
+
+<script src="~/js/register.js"></script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
