@@ -29,15 +29,14 @@ namespace Reforco_Escolar.Controllers
 
             var usuario = await _userManager.GetUserAsync(this.User);
 
-            foreach (var cliente in clientes)
-            {
-                if (cliente.Email == usuario.Email)
-                {
-                    return View(cliente);
-                }
-            }
-            return View();
+            var cliente = clientes.SingleOrDefault(c => c.Email == usuario.Email);
 
+            if (cliente != null)
+            {
+                return View(cliente);
+            }
+
+            return View();
         }
 
         [Authorize]
@@ -45,7 +44,7 @@ namespace Reforco_Escolar.Controllers
         {
             var clientes = await _clienteRepository.GetClientesAsync();
 
-            List<ClienteViewModel> clienteViews = new List<ClienteViewModel>();
+            IList<ClienteViewModel> clienteViews = new List<ClienteViewModel>();
 
             foreach (var cliente in clientes)
             {
@@ -62,7 +61,7 @@ namespace Reforco_Escolar.Controllers
         public async Task<IActionResult> Resumo(Cliente cliente)
         {
             var clienteDb = await _clienteRepository.GetClientesAsync();
-            var clienteUnico = clienteDb.FirstOrDefault(c => c.Email == cliente.Email);
+            var clienteUnico = clienteDb.SingleOrDefault(c => c.Email == cliente.Email);
 
             if (ModelState.IsValid)
             {
@@ -130,7 +129,7 @@ namespace Reforco_Escolar.Controllers
                     await _clienteRepository.UpdateCadastroAsync(id, cliente);
                     return RedirectToAction(nameof(Lista));
                 }
-                return RedirectToAction("Cadastro");
+                return RedirectToAction(nameof(Cadastro));
             }
             catch (Exception)
             {
@@ -144,7 +143,7 @@ namespace Reforco_Escolar.Controllers
         {
             var clienteAsync = await _clienteRepository.GetClientesAsync();
 
-            var cliente = clienteAsync.FirstOrDefault(c => c.Id == id);
+            var cliente = clienteAsync.SingleOrDefault(c => c.Id == id);
 
             ClienteViewModel clienteView = new ClienteViewModel(cliente);
 
