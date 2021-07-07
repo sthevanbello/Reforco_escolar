@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Reforco_Escolar.Models;
 using Reforco_Escolar.Repositories;
@@ -12,21 +13,33 @@ namespace Reforco_Escolar.Controllers
     public class ClienteController : Controller
     {
         private readonly IClienteRepository _clienteRepository;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ClienteController(IClienteRepository clienteRepository)
+        public ClienteController(IClienteRepository clienteRepository, UserManager<IdentityUser> userManager)
         {
             _clienteRepository = clienteRepository;
+            _userManager = userManager;
         }
 
 
         [Authorize]
-        public IActionResult Cadastro()
+        public async Task<IActionResult> Cadastro()
         {
+            var clientes = await _clienteRepository.GetClientesAsync();
 
+            var usuario = await _userManager.GetUserAsync(this.User);
+
+            foreach (var cliente in clientes)
+            {
+                if (cliente.Email == usuario.Email)
+                {
+                    return View(cliente);
+                }
+            }
             return View();
+
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+
         [Authorize]
         public async Task<IActionResult> Lista()
         {
@@ -48,8 +61,15 @@ namespace Reforco_Escolar.Controllers
         [Authorize]
         public async Task<IActionResult> Resumo(Cliente cliente)
         {
+            var clienteDb = await _clienteRepository.GetClientesAsync();
+            var clienteUnico = clienteDb.FirstOrDefault(c => c.Email == cliente.Email);
+
             if (ModelState.IsValid)
             {
+                if (clienteUnico != null)
+                {
+                    return RedirectToAction(nameof(Detalhes), new { id = clienteUnico.Id });
+                }
                 await _clienteRepository.IncluirClienteAsync(cliente);
 
                 ClienteViewModel clienteViewModel = new ClienteViewModel(cliente);
