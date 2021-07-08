@@ -73,6 +73,11 @@ namespace Reforco_Escolar
                 {
                     options.ClientId = Configuration["ExternalLogin:Microsoft:ClientId"];
                     options.ClientSecret = Configuration["ExternalLogin:Microsoft:ClientSecret"];
+                })
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["ExternalLogin:Google:ClientId"];
+                    options.ClientSecret = Configuration["ExternalLogin:Google:ClientSecret"];
                 });
         }
 
