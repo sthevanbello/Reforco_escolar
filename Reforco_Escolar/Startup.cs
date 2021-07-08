@@ -11,6 +11,7 @@ using Reforco_Escolar.Data;
 using Reforco_Escolar.Repositories;
 using Reforco_Escolar.Services;
 using System;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Reforco_Escolar
 {
@@ -65,6 +66,14 @@ namespace Reforco_Escolar
             // Cria a instância de DataService
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IClienteRepository, ClienteRepository>(); // Instância de ClienteRepository
+
+
+            services.AddAuthentication()
+                .AddMicrosoftAccount(options =>
+                {
+                    options.ClientId = Configuration["ExternalLogin:Microsoft:ClientId"];
+                    options.ClientSecret = Configuration["ExternalLogin:Microsoft:ClientSecret"];
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

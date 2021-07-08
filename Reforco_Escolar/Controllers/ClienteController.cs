@@ -35,8 +35,10 @@ namespace Reforco_Escolar.Controllers
             {
                 return View(cliente);
             }
+            cliente = new Cliente();
+            cliente.Email = usuario.Email;
 
-            return View();
+            return View(cliente);
         }
 
         [Authorize]
